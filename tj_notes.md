@@ -102,3 +102,17 @@ The line of code we're aiming for is:
 
 Now, delete the conditional so that we are using the code. Remember that if
 we're wrong, we can get back to green with a single change. That's the key here.
+
+Use our new phrase code for case 3 by removing case 3.
+
+Run tests, of course.
+
+- What about that space at the end of 'the rat...' and 'the malt...'? Is that
+  space part of the phrase or part of the cumulative algorithm? (The algorithm.)
+  How can we change the code so that we make the space part of the cumulative
+  algorithm and also save ourselves the hassle of having to add a space to every
+  part of the phrase that ends up here? (Add the space to join.)
+
+Let's do that, but remember our refactoring rules: add the line of code above so
+that it's parsed and executed, but not yet used. When we're ready, remove the
+code we no longer want.
