@@ -27,10 +27,26 @@ Leading questions for getting to case 1 as empty string:
 
 Leading questions for making phrase open to case 1:
 
-- If we use phrase for case 1, does phrase need to know about num? Yes.
+- If we use phrase for case 1, does phrase need to know about num? (Yes).
 - How can we allow for phrase to accept a parameter without changing any of the
   code we currently have in `line`? In other words, how can we allow for phrase
-  to accept a parameter without actually passing one? Use default parameter
+  to accept a parameter without actually passing one? (Use default parameter)
 
-Add default parameter
+Add default parameter. Run tests, of course.
 
+Now, we know that for case 1 we want an empty string and for case 2 we want 'the
+malt that lay in ' (which is already there).
+
+- Are we now safe to add the conditional without breaking the tests? I think so.
+  Let's try it. (It should work.)
+
+Remember that we are working toward DRYing out cases 1 and 2. We are taking the
+strings with the smallest differences and making them the same. So, we want to
+make case 2 work such that we can copy and paste it to case 1 and it just works.
+
+- Given that, what's our next step? (Add num arg to phrase message send.)
+
+Run tests, of course.
+
+- What's next? (In any order: remove the default argument in `phrase`. Use case
+  2 code for case 1.)
