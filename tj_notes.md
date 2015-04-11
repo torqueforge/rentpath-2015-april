@@ -50,3 +50,9 @@ Run tests, of course.
 
 - What's next? (In any order: remove the default argument in `phrase`. Use case
   2 code for case 1.)
+
+Now that we have the same exact code for cases 1 and 2:
+
+- What's next? (Remove duplicate case 2. This can be done either by: `when 1..2`
+  or by adding an else clause to the case statement and removing both case 1 and
+  2. I like the else clause approach but either is fine.)
