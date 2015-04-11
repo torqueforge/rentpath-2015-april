@@ -19,4 +19,5 @@ Questions for Sandi
 -------------------
 
 - [ ] Clarify flocking rules and how they relate to the refactoring rules.
+- [ ] How to get them to see successor, leading questions.
 
