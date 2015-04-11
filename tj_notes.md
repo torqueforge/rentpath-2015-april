@@ -92,7 +92,8 @@ something.
 So, we need an implementation that will allow us to accumulate strings.
 
 - Can anyone suggest what that might be? (An array. Specifcally, an array that
-  we join.)
+  we join. This requires a bit of Ruby knowledge, so if they need help, nudge
+  them along.)
 - Going back to our refactoring rules, where should we place that code? (At the
   top of phrase, before the conditional, so that it gets parsed and executed,
   but not used.)
@@ -111,8 +112,15 @@ Run tests, of course.
   space part of the phrase or part of the cumulative algorithm? (The algorithm.)
   How can we change the code so that we make the space part of the cumulative
   algorithm and also save ourselves the hassle of having to add a space to every
-  part of the phrase that ends up here? (Add the space to join.)
+  part of the phrase? (Add the space to join.)
 
 Let's do that, but remember our refactoring rules: add the line of code above so
 that it's parsed and executed, but not yet used. When we're ready, remove the
 code we no longer want.
+
+Use else branch if we're not already doing that.
+
+Add line breaks to array for readability.
+
+Add all remaining substrings to `phrase`. At this point, it becomes an exercise
+in copy/paste.
