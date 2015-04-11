@@ -8,7 +8,7 @@ class Bottles
   end
 
   def verse(num)
-    "#{remaining(num).capitalize} #{container(num)} of beer on the wall, #{remaining(num)} #{container(num)} of beer.\n#{action(num)}, #{remaining(num-1)} #{container(num-1)} of beer on the wall.\n"
+    "#{amount(num).capitalize} #{container(num)} of beer on the wall, #{amount(num)} #{container(num)} of beer.\n#{action(num)}, #{amount(num-1)} #{container(num-1)} of beer on the wall.\n"
   end
 
   def container(num)
@@ -27,7 +27,7 @@ class Bottles
     end
   end
 
-  def remaining(num)
+  def amount(num)
     if num == 0
       'no more'
     elsif num == -1
