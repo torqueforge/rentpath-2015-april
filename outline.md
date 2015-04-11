@@ -4,9 +4,6 @@ Pre Class
 Prepare the Repo
 ----------------
 
-- [x] Create a new repo under TorqueForge following the directions in
-  CLASS_SETUP.md.
-
 Copy the 99Bottles and House exercises to master.
 
     git checkout master
