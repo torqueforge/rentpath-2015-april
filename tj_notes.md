@@ -15,6 +15,11 @@ TJ Notes
   from the conditional to an array of phrases:
   https://github.com/torqueforge/rentpath-2015-april/commit/878fa94fc87fa1eef305a52e41956e19e8c8bbc1
 
+Questions for Sandi
+-------------------
+
+- [ ] Clarify flocking rules and how they relate to the refactoring rules.
+
 House shameless to DRY, take 2
 ------------------------------
 
@@ -56,3 +61,44 @@ Now that we have the same exact code for cases 1 and 2:
 - What's next? (Remove duplicate case 2. This can be done either by: `when 1..2`
   or by adding an else clause to the case statement and removing both case 1 and
   2. I like the else clause approach but either is fine.)
+
+Now we need to transition from 2 cases to 3. We are DRYing this code out, so it
+cannot duplicate 'the malt that lay in '. We must have only 1 instance of that
+string in our code.
+
+Let's talk about what should be returned from each of the cases. (A whiteboard
+will be helpful here.)
+
+```
+ Now:
+
+when num == 1, phrase(num) should return ''
+when num == 2, phrase(num) should return 'the malt that lay in '
+when num == 3, phrase(num) should return 'the rat that ate the malt that lay in '
+```
+
+Seeing the solution requires understanding that the '' above is _something_, and
+that what's actually needed is:
+
+```
+when num == 1, phrase(num) should return ''
+when num == 2, phrase(num) should return 'the malt that lay in ' + ''
+when num == 3, phrase(num) should return 'the rat that ate ' + 'the malt that lay in ' + ''
+```
+
+The algorithm is cumulative. Case 1 is an empty string, but it's still
+something.
+
+So, we need an implementation that will allow us to accumulate strings.
+
+- Can anyone suggest what that might be? (An array. Specifcally, an array that
+  we join.)
+- Going back to our refactoring rules, where should we place that code? (At the
+  top of phrase, before the conditional, so that it gets parsed and executed,
+  but not used.)
+
+The line of code we're aiming for is:
+`['the rat that ate ', 'the malt that lay in ', ''].last(num).join('')`
+
+Now, delete the conditional so that we are using the code. Remember that if
+we're wrong, we can get back to green with a single change. That's the key here.

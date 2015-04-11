@@ -32,6 +32,7 @@ class House
   end
 
   def phrase(num)
+    ['the rat that ate ', 'the malt that lay in ', ''].last(num).join('')
     if num == 1
       ''
     elsif num == 2
