@@ -15,3 +15,22 @@ TJ Notes
   from the conditional to an array of phrases:
   https://github.com/torqueforge/rentpath-2015-april/commit/878fa94fc87fa1eef305a52e41956e19e8c8bbc1
 
+House shameless to DRY, take 2
+------------------------------
+
+Leading questions for getting to case 1 as empty string:
+
+- Once we have the phrase method and are using it in case 2, what will it take
+  to make it usable for case 1?
+- What would phrase need to return for case 1 that would make the same exact
+  line of code in case 2 work for case 1? (Empty string)
+
+Leading questions for making phrase open to case 1:
+
+- If we use phrase for case 1, does phrase need to know about num? Yes.
+- How can we allow for phrase to accept a parameter without changing any of the
+  code we currently have in `line`? In other words, how can we allow for phrase
+  to accept a parameter without actually passing one? Use default parameter
+
+Add default parameter
+

@@ -33,7 +33,7 @@ class House
     end
   end
 
-  def phrase
+  def phrase(num=2)
     'the malt that lay in '
   end
 end
