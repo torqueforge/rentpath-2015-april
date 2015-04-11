@@ -44,4 +44,12 @@ class Bottles
       "Take #{pronoun(num)} down and pass it around"
     end
   end
+
+  def successor(num)
+    if num == 0
+      99
+    else
+      num - 1
+    end
+  end
 end
