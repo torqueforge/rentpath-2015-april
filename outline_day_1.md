@@ -705,6 +705,8 @@ Now that container is open/closed, use it for the 'if' case.
 
 Remove the superfluous default parameter.
 
+Now the strings are the same and we can remove the 2 case.
+
 
 **OFFICE HOURS*
 
