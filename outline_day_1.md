@@ -690,7 +690,16 @@ warrant breaking them.
 
 Add a dummy default argument to the container method, like `:else_branch`
 
-Add the conditional to `container`
+Add the conditional to `container, which now returns 'bottle' or 'bottles'. The
+caller does not yet pass an argument, so this only proves that the string
+'bottles' (the else branch) is the right answer for our one caller.
+
+Notice that we are adding code to meet the next requirement before attempting to
+use the added code in the next place. We _want_ to be able to say
+`#{container(number-1)}` in place of 'bottle' and we're:
+1) changing the exiting code to be open/closed to the new requirement,
+2) making sure the new code continues to work in the current place, and then,
+3) we'll just replace 'bottle' with the new message `#{container(number-1)}`
 
 
 
