@@ -20,4 +20,6 @@ Questions for Sandi
 
 - [ ] Clarify flocking rules and how they relate to the refactoring rules.
 - [ ] How to get them to see successor, leading questions.
-
+- [ ] Just to verify, we do house shameless to DRY in mob, then they do house
+  shameless to DRY, then we come back to bottles shameless green and onto
+  bottles shameless to DRY in mob.

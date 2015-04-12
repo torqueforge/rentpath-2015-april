@@ -532,8 +532,9 @@ the next thing to do.
 
 *Say:*
 
-- Don't type along; you'll each do this tomorrow morn.
-- If you feel the urge to jump vertically, don't stray from the path, just write your issue down. Make a TODO list. You can go back to it.
+- Don't type along; you'll each do this tomorrow morning.
+- If you feel the urge to jump vertically, don't stray from the path, just write
+  your issue down. Make a TODO list. You can go back to it.
 
 As they mob this:
 
