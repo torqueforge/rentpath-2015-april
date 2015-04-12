@@ -682,5 +682,13 @@ complete method that can be used to replace 'bottle' and 'bottles'.
 First compile a new (sparse) #container method. Notice this returns the value
 from the 'else' branch.
 
+Then we can either execute the container method by putting at the top of the
+verses method before the case statement, or we can just plug it in where we
+expect to use it in the else branch of the case statement. While plugging it in
+is a slight violation of the refactoring rules, it's a small enough change to
+warrant breaking them.
+
+Add a dummy default argument to the container method, like `:else_branch`
+
 **OFFICE HOURS*
 
