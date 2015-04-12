@@ -41,12 +41,4 @@ class Bottles
     end
   end
 
-  def remaining(number)
-    if number == 0
-      'no more'
-    else
-      number.to_s
-    end
-  end
-
 end
