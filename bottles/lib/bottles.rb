@@ -11,9 +11,9 @@ class Bottles
   def verse(number)
     case number
     when 0
-      "#{amount(number).capitalize} #{container(number)} of beer on the wall, #{amount(number)} #{container(number)} of beer.\n#{action(number)}, #{amount(99)} bottles of beer on the wall.\n"
+      "#{amount(number).capitalize} #{container(number)} of beer on the wall, #{amount(number)} #{container(number)} of beer.\n#{action(number)}, #{amount(successor(number))} #{container(successor(number))} of beer on the wall.\n"
     else
-      "#{amount(number).capitalize} #{container(number)} of beer on the wall, #{amount(number)} #{container(number)} of beer.\n#{action(number)}, #{amount(number-1)} #{container(number-1)} of beer on the wall.\n"
+      "#{amount(number).capitalize} #{container(number)} of beer on the wall, #{amount(number)} #{container(number)} of beer.\n#{action(number)}, #{amount(successor(number))} #{container(successor(number))} of beer on the wall.\n"
     end
   end
 
@@ -46,6 +46,14 @@ class Bottles
       'Go to the store and buy some more'
     else
       "Take #{pronoun(number)} down and pass it around"
+    end
+  end
+
+  def successor(number)
+    if number == 0
+      99
+    else
+      number - 1
     end
   end
 
