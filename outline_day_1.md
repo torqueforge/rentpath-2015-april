@@ -774,7 +774,10 @@ did was too early.
   remaining method, rename it `amount`, then go about replacing `remaining`
   usage with `amount`.
 
-- Use amount capitalize for 'no more'
+- Use amount capitalize for 'no more'.
+
+- Continue to make the the first part of the strings the same using `amount` and
+  `container` methods.
 
 **OFFICE HOURS*
 
