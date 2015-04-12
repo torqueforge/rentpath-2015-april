@@ -701,6 +701,9 @@ use the added code in the next place. We _want_ to be able to say
 2) making sure the new code continues to work in the current place, and then,
 3) we'll just replace 'bottle' with the new message `#{container(number-1)}`
 
+Now that container is open/closed, use it for the 'if' case.
+
+Remove the superfluous default parameter.
 
 
 **OFFICE HOURS*
