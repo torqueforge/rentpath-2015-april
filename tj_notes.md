@@ -23,3 +23,5 @@ Questions for Sandi
 - [ ] Just to verify, we do house shameless to DRY in mob, then they do house
   shameless to DRY, then we come back to bottles shameless green and onto
   bottles shameless to DRY in mob.
+- [ ] I'm making some cheatsheets for myself for things like steps for method
+  extraction. Would those be useful to you?

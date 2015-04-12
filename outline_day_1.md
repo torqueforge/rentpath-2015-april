@@ -692,7 +692,7 @@ warrant breaking them.
 
 Add a dummy default argument to the container method, like `:else_branch`
 
-Add the conditional to `container, which now returns 'bottle' or 'bottles'. The
+Add the conditional to `container`, which now returns 'bottle' or 'bottles'. The
 caller does not yet pass an argument, so this only proves that the string
 'bottles' (the else branch) is the right answer for our one caller.
 
@@ -710,6 +710,34 @@ Remove the superfluous default parameter.
 Now the strings are the same and we can remove the 2 case.
 
 ### The 1 case
+
+Begin with sending `#{number}` where possible, just like we did for the 2 case.
+
+Send `#{container(number)}` where possible.
+
+NOTE: I did container before pronoun. I'm going to leave it like that; we'll see
+if I regret it. It felt like the right thing to do considering: use existing
+methods to DRY strings as much as possible and do horizontal refactorings.
+
+#### pronoun
+
+Usual method extraction and message passing steps apply:
+
+1. Add bare method that returns just the string we need in the else branch.
+2. Run tests to parse that code.
+3. Send the message (use the code) in our string. Run tests that prove execution
+AND usage of our new code. (We are combining steps here, but it's okay. We
+_could_ have just stuck a message send somewhere completely inconsequential to
+prove execution first, then in the next step actually use the return value of
+the message.)
+4. Add default dummy argument to method.
+5. Add conditional within the method. Strict adherence to the refactoring rules
+would have us do this in two steps: 1) add the conditional above the existing
+return value, run the tests, then, 2) remove the old return value, run the
+tests. But it's okay in this exercise to combine these steps into one.
+6. Add parameter to the message send.
+7. Use the message where the 'if' part of the branch would be triggered.
+8. Remove the dummy default parameter from the method.
 
 **OFFICE HOURS*
 
