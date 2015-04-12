@@ -661,5 +661,26 @@ As they mob this:
   important idea. The *concept* exists, even if it can sometimes be implemented
   as a no-op.
 
+More detailed breakdown
+-----------------------
+
+- What two strings are most alike? (case 2 and else)
+- What's the smallest difference that we can make the same? (Change instances of
+  2 to #{number} and 1 to #{number-1})
+
+Now we encounter the bottle/bottles difference:
+
+We need to make 'bottle' and 'bottles' the same. This means we'll have to send
+a message in each string's place, and this, in turn, means we have to name this
+concept.
+
+We decide to name the concept 'container'. Now we have to add a method and send
+the message in the place of each string. We'll following the micro refactoring
+rules here, making the smallest changes possible, and nibbling our way toward a
+complete method that can be used to replace 'bottle' and 'bottles'.
+
+First compile a new (sparse) #container method. Notice this returns the value
+from the 'else' branch.
+
 **OFFICE HOURS*
 

@@ -1,58 +1,24 @@
 class Bottles
+
   def song
-    verses(99,0)
+    verses(99, 0)
   end
 
-  def verses(num_from, num_to)
-    num_from.downto(num_to).map { |num| verse(num) }.join("\n")
+  def verses(upper, lower)
+    upper.downto(lower).map { |i| verse(i) }.join("\n")
   end
 
-  def verse(num)
-    "#{amount(num).capitalize} #{container(num)} of beer on the wall, " +
-    "#{amount(num)} #{container(num)} of beer.\n" +
-    "#{action(num)}, " +
-    "#{amount(successor(num))} #{container(successor(num))} of beer on the wall.\n"
-  end
-
-  def container(num)
-    if num == 1
-      'bottle'
+  def verse(number)
+    case number
+    when 0
+      "No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.\n"
+    when 1
+      "1 bottle of beer on the wall, 1 bottle of beer.\nTake it down and pass it around, no more bottles of beer on the wall.\n"
+    when 2
+      "#{number} bottles of beer on the wall, #{number} bottles of beer.\nTake one down and pass it around, #{number-1} bottle of beer on the wall.\n"
     else
-      'bottles'
+      "#{number} bottles of beer on the wall, #{number} bottles of beer.\nTake one down and pass it around, #{number-1} bottles of beer on the wall.\n"
     end
   end
 
-  def pronoun(num)
-    if num == 1
-      'it'
-    else
-      'one'
-    end
-  end
-
-  def amount(num)
-    if num == 0
-      'no more'
-    elsif num == -1
-      99.to_s
-    else
-      num.to_s
-    end
-  end
-
-  def action(num)
-    if num == 0
-      'Go to the store and buy some more'
-    else
-      "Take #{pronoun(num)} down and pass it around"
-    end
-  end
-
-  def successor(num)
-    if num == 0
-      99
-    else
-      num - 1
-    end
-  end
 end
