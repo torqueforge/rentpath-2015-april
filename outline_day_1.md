@@ -664,6 +664,8 @@ As they mob this:
 More detailed breakdown
 -----------------------
 
+### The 2 case
+
 - What two strings are most alike? (case 2 and else)
 - What's the smallest difference that we can make the same? (Change instances of
   2 to #{number} and 1 to #{number-1})
@@ -707,6 +709,7 @@ Remove the superfluous default parameter.
 
 Now the strings are the same and we can remove the 2 case.
 
+### The 1 case
 
 **OFFICE HOURS*
 
