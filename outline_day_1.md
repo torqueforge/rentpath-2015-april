@@ -664,7 +664,7 @@ As they mob this:
 More detailed breakdown
 -----------------------
 
-### The 2 case
+### 2 case
 
 - What two strings are most alike? (case 2 and else)
 - What's the smallest difference that we can make the same? (Change instances of
@@ -709,7 +709,7 @@ Remove the superfluous default parameter.
 
 Now the strings are the same and we can remove the 2 case.
 
-### The 1 case
+### 1 case
 
 Begin with sending `#{number}` where possible, just like we did for the 2 case.
 
@@ -761,6 +761,20 @@ Details of using incorrect 'no more' approach for amount:
 
 After adding `amount` we are able to remove the 1 case branch.
 
+### 0 case
+
+Here is where I realize that remaining is not a good name. It serves the end
+part of the verse well, but now that we're looking to use that concept for the
+beginning part of the string, it makes less sense. Also, and mainly because of
+my experience with this exercise I know it's coming, the idea of remaining is
+probably a reach towards the concept of successor. But going there back when I
+did was too early.
+
+- Rename `remaining` to `amount`. Using the refactoring rules, we duplicate the
+  remaining method, rename it `amount`, then go about replacing `remaining`
+  usage with `amount`.
+
+- Use amount capitalize for 'no more'
 
 **OFFICE HOURS*
 
