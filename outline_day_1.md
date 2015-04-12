@@ -739,5 +739,28 @@ tests. But it's okay in this exercise to combine these steps into one.
 7. Use the message where the 'if' part of the branch would be triggered.
 8. Remove the dummy default parameter from the method.
 
+#### amount/remaining
+
+Let them go down the 'no more' path if the class chooses to do so, but guide
+them toward using a default argument for the else branch as we've been doing,
+just so they see what can happen when that goes awry.
+
+When students try to make 'no more' and '#{number-1}' the same, they often
+unconsciously do something slightly different then previously. They seem
+confused by the fact that 'no more' is a straightforward string and
+'#{number-1}' is interpolated, and they often choose to return 'no more' in
+`amount`. They don't recognize that they've picked the non-default value, and in
+a minute things break for them in a confusing way. Watch, it's about to happen.
+:-)
+
+Details of using incorrect 'no more' approach for amount:
+
+- Use `:else_branch` like we have been for the default parameter.
+- It breaks when we add the conditional and don't send the parameter.
+- Fix: change default parameter to be the compared value in if.
+
+After adding `amount` we are able to remove the 1 case branch.
+
+
 **OFFICE HOURS*
 
