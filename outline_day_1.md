@@ -779,5 +779,38 @@ did was too early.
 - Continue to make the the first part of the strings the same using `amount` and
   `container` methods.
 
+- Add action method. You need the number argument.
+
+#### successor
+
+When number is 0, number-1 doesn't fare so well as a parameter to amount.
+Students will often want to add a third branch to `amount` for number == -1, but
+ask that they resist that urge, promise them that there is a concept lurking
+which will obviate the need to add a 3rd conditional branch to `amount`. Also,
+we don't know this yet, but there is value in keeping these extracted methods in
+the same shape.
+
+- How can we make them a little more alike? `amount(99)`
+- What happens if you send 99 to amount? You end up with `amount(99)` and
+  `amount(number-1)`.
+
+These are essentially the same thing, but the parameter represents a concept.
+Just like we've been doing, the first thing we do is give it a name. Let's name
+that concept and send a message for it.
+
+- When you're on x number verse, what is the next verse? 50/49, 5/4, etc. Keep
+  doing that until they say the concept is 'next'.
+
+Unfortunately, 'next' is a keyword. :) If you were a Fixnum in Ruby, what
+message do you send to get the adjacent number. `succ` and `pred` - since we're
+counting down, probably `successor` because `succ` is such a terrible name.
+Actually it's a completely appropriate name from a meta standpoint. It's
+difficult to isolate this concept, but the refactoring rules bring us to it. We
+didn't have to figure it out, we just needed to resist the temptation to do too
+much. `amount(99)` is the key. This approach might not be the first thing you
+think of until you get used to following and trusting the refactoring rules. Our
+desire to leap toward the hard problems and discount the simple ones often leads
+us to miss these kinds of abstractions.
+
 **OFFICE HOURS*
 
