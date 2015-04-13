@@ -18,23 +18,23 @@ class Bottles
   private
 
   def container(bottle_number)
-    BottleNumber.new(bottle_number).container(bottle_number)
+    BottleNumber.new(bottle_number).container
   end
 
   def pronoun(bottle_number)
-    BottleNumber.new(bottle_number).pronoun(bottle_number)
+    BottleNumber.new(bottle_number).pronoun
   end
 
   def amount(bottle_number)
-    BottleNumber.new(bottle_number).amount(bottle_number)
+    BottleNumber.new(bottle_number).amount
   end
 
   def action(bottle_number)
-    BottleNumber.new(bottle_number).action(bottle_number)
+    BottleNumber.new(bottle_number).action
   end
 
   def successor(bottle_number)
-    BottleNumber.new(bottle_number).successor(bottle_number)
+    BottleNumber.new(bottle_number).successor
   end
 end
 
@@ -46,7 +46,7 @@ class BottleNumber
     @number = number
   end
 
-  def container(bottle_number)
+  def container(bottle_number=self.number)
     if bottle_number == 1
       'bottle'
     else
@@ -54,7 +54,7 @@ class BottleNumber
     end
   end
 
-  def pronoun(bottle_number)
+  def pronoun(bottle_number=self.number)
     if bottle_number == 1
       'it'
     else
@@ -62,7 +62,7 @@ class BottleNumber
     end
   end
 
-  def amount(bottle_number)
+  def amount(bottle_number=self.number)
     if bottle_number == 0
       'no more'
     else
@@ -70,7 +70,7 @@ class BottleNumber
     end
   end
 
-  def action(bottle_number)
+  def action(bottle_number=self.number)
     if bottle_number == 0
       'Go to the store and buy some more'
     else
@@ -78,7 +78,7 @@ class BottleNumber
     end
   end
 
-  def successor(bottle_number)
+  def successor(bottle_number=self.number)
     if bottle_number == 0
       99
     else
