@@ -18,6 +18,35 @@ class Bottles
   private
 
   def container(bottle_number)
+    BottleNumber.new(bottle_number).container(bottle_number)
+  end
+
+  def pronoun(bottle_number)
+    BottleNumber.new(bottle_number).pronoun(bottle_number)
+  end
+
+  def amount(bottle_number)
+    BottleNumber.new(bottle_number).amount(bottle_number)
+  end
+
+  def action(bottle_number)
+    BottleNumber.new(bottle_number).action(bottle_number)
+  end
+
+  def successor(bottle_number)
+    BottleNumber.new(bottle_number).successor(bottle_number)
+  end
+end
+
+class BottleNumber
+
+  attr_reader :number
+
+  def initialize(number)
+    @number = number
+  end
+
+  def container(bottle_number)
     if bottle_number == 1
       'bottle'
     else
