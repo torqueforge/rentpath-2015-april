@@ -37,10 +37,8 @@ They can rip a post-it in half. Whatever. We just want them to think.
 
 Update Post-it goals during break.
 
-Bottles, Redux, continued
--------------------------
-
-### 99 Bottles, They do Shameless Green to DRY
+99 Bottles, They do Shameless Green to DRY
+------------------------------------------
 
 11:00am
 
@@ -88,17 +86,31 @@ Talk about the characteristics of the DRY Solution
 - We've turned one conditional into many!!!
 - Is this better or worse than Shameless Green?
 
-### 99 Bottles, DRY to Extract class
+99 Bottles, DRY to Extract class
+--------------------------------
+
+### Private
+
+Before we segue into open/closed and code smell discussion, step back and do the
+squint test on the class.
+
+- Does anyone notice anything obvious about the way the code is shaped in this
+  class? (It's in two parts.)
+- If we were going to divide this class into two parts, where might we split it?
+- For now, how might we split this class? (Add a private keyword after verse,
+  before the methods containing conditionals.)
+
+Add private keyword
 
 We're still trying to add 6-packs.
 
-- Is DRY Bottles open closed to 6-packs? (Would you have to edit this class?)
-- Do you know how to make it open/closed?
+- Is DRY Bottles open/closed to 6-packs? (No)
+- Would you have to edit this class? (Yes)
+- Do you know how to make it open/closed? (No)
 - Fix the most egregious sin
-
 - What is the sin?
 
-Talk about Code Smells
+### Code Smells
 
 - Kent Beck coined 'code smell'
 - Martin Fowlers book.
@@ -106,35 +118,63 @@ Talk about Code Smells
 - Every code smell has a corrective refactoring recipe
 - If you could only recognize code smells, you could apply the correct recipe
 - What are the code smells in 99 Bottles DRY?
-  - Clusters of similar shapes
-  - Private methods
-  - Many methods take the same argument (What does the argument represent? Trace
-    it all the way back to enumeration.)
-  - Many methods depend more on the argument they got passed then the class as a
-    whole
-  - If you were going to divide this class into two parts, where would you split
-    it?
 
-Primitive Obsession code smell: 'number' ought to be a first class object which
-hold onto a single value of number and implements all those methods. Then you
-wouldn't have to pass the argument around.
+#### Private methods
+
+Not in itself a sin but definitely an indicator that #song, #verse and #verses
+are one kind of thing and that the private methods might be another.
+
+#### Methods which take the same parameter
+
+Most methods in this class take the 'number' parameter. This may mean that
+'number' ought to be promoted to a full blown object which contains the behavior
+in these methods. This is a form of 'primitive obsession'.
+
+#### Methods which depend more on the parameter they get passed then on the rest of the class:
+
+Except for #action (which depends on #pronoun) every one of the private methods
+depends only on the argument that gets passed. As a matter of fact if you'll
+accept that since #pronoun depends only on 'number', then #action also depends
+only on 'number', all of the private methods are about 'number' instead of
+Bottles. This may be a form of 'feature envy'. Here we wish that the primitive
+'number' was an object and we wish that new object had this behavior.
+
+#### Clusters of similar shapes
+
+This is not necessarily a general code smell, but in the context of a larger
+class it's something to notice. Do these methods belong together as their own
+separate concept?
+
+#### Primitive Obsession
+
+'number' ought to be a first class object which hold onto a single value of
+number and implements all those methods. Then you wouldn't have to pass the
+argument around.
+
+These smells combine to support the idea that Bottles has more than one
+responsibility. We should identify those responsibilities and separate them.
 
 ### DEMO 99 Bottles, DRY to Extract class
 
-- In extracted methods, change 'number' argument to 'bottle_number'
-
-What does this argument represent? A verse? Or a bottle number? While it's true
-that in the #verse method the 'number' argument represents a verse number, by
-the time the arg is passed to the private methods it represents a bottle number.
+So, we think there's an extractable concept lurking in this class and we think
+it's represented by these private methods. Let's start by talking about the
+argument common to each of these methods. What does this argument represent? A
+verse? Or a bottle number? While it's true that in the #verse method the
+'number' argument represents a verse number, by the time the arg is passed to
+the private methods it represents a bottle number.
 
 We know this because the `#successor` method is used to change the value of the
 number that gets passed to `#amount` and `#container`. During any verse N,
-`#amount` might get called with (N), or with (N+1). Therefore, `#amount` is not
+`#amount` might get called with n, or with n-1. Therefore, `#amount` is not
 taking verse number as an argument, it's taking bottle number.
 
 Naming the concept correctly makes everything clear. We should next extract a
 class that holds bottle_number as a piece of state, and move methods that depend
 on that piece of state to it.
+
+- In extracted methods, change 'number' argument to 'bottle_number'
+
+### Extract class steps - first steps
 
 - Create an empty class
 - Copy the methods to it
@@ -143,12 +183,14 @@ on that piece of state to it.
   BottleNumber.new(number).action(number)
 
 Then remove remove the method arguments one at a time, using a default of
-`self.number`.
+`self.number`. This will get rid of all the bottle_number args.
 
-In Bottles, add:
+#### Factory method in Bottles
+
+Create the factory method. In Bottles, add:
 `bottle_number_for(number)` to return `BottleNumber.new(number)`
 
-In Bottles#verse add:
+Use the factory method. In Bottles#verse add:
 `bottle_number = bottle_number_for(number)`
 
 and replace calls one at at time until forced to:
@@ -177,11 +219,14 @@ Once Extract Class is done, notice:
 - That value represents the same concept everywhere
 - Each branch of each conditional returns the smallest atomic idea
 
-Is it open/closed to 6-packs?
+Is it open/closed to 6-packs? No.
 
 ### They Do -> 99 Bottles, DRY to Extract class
 
 ### Create SOLID posters
+
+- [ ] Need more info here on this assignment. Guess: split into 5 groups, each
+  group gets a letter to make a short presentation on. How long? 5 minutes?
 
 ### DEMO 99 Bottles, Conditional to Polymorphism
 
