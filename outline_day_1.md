@@ -812,5 +812,8 @@ think of until you get used to following and trusting the refactoring rules. Our
 desire to leap toward the hard problems and discount the simple ones often leads
 us to miss these kinds of abstractions.
 
+Once we have successor, use it. This brings us to the point that we have a
+single string with no duplication. Remove all cases.
+
 **OFFICE HOURS*
 
