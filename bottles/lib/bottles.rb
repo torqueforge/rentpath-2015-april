@@ -21,27 +21,6 @@ class Bottles
     BottleNumber.new(number)
   end
 
-  private
-
-  def container(bottle_number)
-    BottleNumber.new(bottle_number).container
-  end
-
-  def pronoun(bottle_number)
-    BottleNumber.new(bottle_number).pronoun
-  end
-
-  def amount(bottle_number)
-    BottleNumber.new(bottle_number).amount
-  end
-
-  def action(bottle_number)
-    BottleNumber.new(bottle_number).action
-  end
-
-  def successor(bottle_number)
-    BottleNumber.new(bottle_number).successor
-  end
 end
 
 class BottleNumber
