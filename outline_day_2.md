@@ -50,8 +50,6 @@ up to the projector and have the class give them advice.
 
 
 
-___
-[
 Everything from here down is pending updates
 
 
@@ -122,7 +120,7 @@ Primative Obsession code smell
 
 Create an empty class
 Copy the methods to it
-Add and attr_reader and initializer for number
+Add an attr_reader and initializer for number
 In Bottles, go into every method we've moved and replace contents with
   BottleNumber.new(number).action(number)
 
