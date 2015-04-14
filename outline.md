@@ -828,10 +828,13 @@ finishing everything early, give them one or more of the following assignments
   - Fix the #successor Liskov violation
   - Use const_get to make the factory we have open closed
   - Do factory escalations
-    - What if you want the factory to be open to new subclasses? (metaprogramming, #const_get)
+    - What if you want the factory to be open to new subclasses?
+      (metaprogramming, #const_get)
     - What if you want better names? (Hash, YML, database list)
-    - What if you put the factory in a conversion method on Fixnum? (monkey patch)
-    - What if you want to disperse the logic that chooses the right class into the class that might be chosen (handler pattern)?
+    - What if you put the factory in a conversion method on Fixnum? (monkey
+      patch)
+    - What if you want to disperse the logic that chooses the right class into
+      the class that might be chosen (handler pattern)?
 
 # DAY 3
 
