@@ -5,6 +5,7 @@ Day 1 High Level Outline
 -------------
 
 - Setup repo
+- Review outline
 - Pass out supplies, name tag laptop
 
 10:00 - 10:15
