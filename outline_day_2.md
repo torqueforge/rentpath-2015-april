@@ -225,10 +225,60 @@ Is it open/closed to 6-packs? No.
 
 ### Create SOLID posters
 
-- [ ] Need more info here on this assignment. Guess: split into 5 groups, each
-  group gets a letter to make a short presentation on. How long? 5 minutes?
+15:00
+
+- Have them count off from 1-5 or S-D (S O L I D)
+- Give them 35 minutes to take a 5 min break and then do 30 mins research
+- Have them give 5 minute presentations (this is a great opportunity for them to
+  nourish their inner playwrights)
+- Their presentation should include a definition, examples (in code and/or in
+  life) and places in class or in their own applications where they follow/break
+  the rule.
+
+*SHORT BREAK*
 
 ### DEMO 99 Bottles, Conditional to Polymorphism
+
+16:00
+
+If planning to start from my extracted class, be sure you:
+
+    git checkout master
+    git checkout origin/origin/bottles_3_dry_to_bottle_number -- bottles/
+    git commit -m 'extracted BottleNumber class'
+    git push origin master
+
+and then have them
+
+    git pull
+
+Remind them of the current state of the code.
+
+- BottleNumber has been extracted.
+- Once created, instances never mutate. They're thread-safe.
+- Methods all contain conditionals that switch on 'number'.
+- 'number' represents the same thing in every case.
+
+Notice that we still have the Primitive Obsession code smell, but now we're
+obsessing on not just a Fixnum, but on a specific value of a Fixnum. This is
+only obvious because of the shape of the code, and the code is only shaped this
+way because we following the refactoring (flocking) rules.
+
+Help them get started with bottles_4_bottle_number_to_no_conditionals. You
+should only have to prompt them to create one subclass and fix one method, and
+they should get the rest on their own. Stand in the back and relinquish control
+as soon as possible.
+
+Process:
+
+(In all of the following, run the tests at every opportunity.)
+
+Leading questions:
+
+- Do we still have the primitive obsession code smell? (Yes)
+- What is the recipe for getting rid of that code smell? (Extract class)
+- Let's pick on method: amount. What value do we wish we had a smarter object
+  for? (0)
 
 - Create BottleNumber0 as subclass of BottleNumber
 - Copy one method, maybe #amount into it
