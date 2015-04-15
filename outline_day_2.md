@@ -57,6 +57,8 @@ up to the projector and have the class give them advice.
 
 Check a DRY Bottles into master for us to demo Extract Class
 
+---
+
 Ask them about their experience:
 - names
 - problems

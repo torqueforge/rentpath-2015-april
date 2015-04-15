@@ -20,6 +20,11 @@ Update Post-it goals during break.
 During lunch: Mob 99 Bottles, DRY to Extract class
 --------------------------------------------------
 
+Ask about their experience
+
+- Problems?
+- Insights?
+
 We're still trying to add 6-packs
 
 - Is DRY Bottles open/closed to 6-packs? (No)
@@ -69,46 +74,9 @@ Is it open/closed to 6-packs? No.
 
 ### They Do -> 99 Bottles, DRY to Extract class
 
-### Create SOLID posters
-
-15:00
-
-- Have them count off from 1-5 or S-D (S O L I D)
-- Give them 35 minutes to take a 5 min break and then do 30 mins research
-- Have them give 5 minute presentations (this is a great opportunity for them to
-  nourish their inner playwrights)
-- Their presentation should include a definition, examples (in code and/or in
-  life) and places in class or in their own applications where they follow/break
-  the rule.
-
 *SHORT BREAK*
 
 ### DEMO 99 Bottles, Conditional to Polymorphism
-
-#### Factory method in Bottles
-
-Create the factory method. In Bottles, add:
-`bottle_number_for(number)` to return `BottleNumber.new(number)`
-
-Use the factory method. In Bottles#verse add:
-`bottle_number = bottle_number_for(number)`
-
-and replace calls one at at time until forced to:
-
-`next_bottle_number = bottle_number_for(bottle_number.successor)`
-
-then finish replacing.
-
-- Why can't I just say bottle_number.successor, ie, just ask a BottleNumber for
-  its successor? Because successor returns a Fixnum, not a BottleNumber.
-
-- This is a Liskov violation
-- Don't try to fix it now, just note it
-- I would prefer to just ask the object I know for something and have to answer
-  be right
-- Don't want to get the result and have to do something to it
-- This is just like the problem of #amount needed to return a 'capitalizable'
-
 
 16:00
 
