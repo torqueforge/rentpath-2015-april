@@ -1,5 +1,4 @@
 class Bottles
-
   def song
     verses(99, 0)
   end
@@ -9,16 +8,49 @@ class Bottles
   end
 
   def verse(number)
-    case number
-    when 0
-      "No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.\n"
-    when 1
-      "1 bottle of beer on the wall, 1 bottle of beer.\nTake it down and pass it around, no more bottles of beer on the wall.\n"
-    when 2
-      "2 bottles of beer on the wall, 2 bottles of beer.\nTake one down and pass it around, 1 bottle of beer on the wall.\n"
+    "#{amount(number).capitalize} #{container(number)} of beer on the wall, " +
+    "#{amount(number)} #{container(number)} of beer.\n" +
+    "#{action(number)}, " +
+    "#{amount(successor(number))} #{container(successor(number))} of beer on the wall.\n"
+  end
+
+  def successor(quantity)
+    if quantity == 0
+      99
     else
-      "#{number} bottles of beer on the wall, #{number} bottles of beer.\nTake one down and pass it around, #{number-1} bottles of beer on the wall.\n"
+      quantity - 1
     end
   end
 
+  def action(quantity)
+    if quantity == 0
+      "Go to the store and buy some more"
+    else
+      "Take #{pronoun(quantity)} down and pass it around"
+    end
+  end
+
+  def amount(quantity)
+    if quantity == 0
+      "no more"
+    else
+      quantity.to_s
+    end
+  end
+
+  def pronoun(quantity)
+    if quantity==1
+      "it"
+    else
+      "one"
+    end
+  end
+
+  def container(quantity)
+    if quantity==1
+      "bottle"
+    else
+      "bottles"
+    end
+  end
 end
