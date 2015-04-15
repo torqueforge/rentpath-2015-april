@@ -23,20 +23,24 @@ Have them do surveys and reflection as per day 2.
 
 ### 99 Bottles, They do Conditional to Polymorphism
 
-This seems easy, but they may have trouble with the Factory, and fixing the Liskov violation in the successor method.  Give them lots of help.  You can also identify the folks that get it and have them mentor groups of 3 or 4.
+This seems easy, but they may have trouble with the Factory, and fixing the
+Liskov violation in the successor method. Give them lots of help. You can also
+identify the folks that get it and have them mentor groups of 3 or 4.
 
 Once they all get through the conditional to polymorphism refactoring...
 
-### MOB 99 Bottles, Add 6-packs
+### Mob 99 Bottles, Add 6-packs
 
 This is so easy and so satisfying that it's best to do it as a group.
 
-They should first change the tests (we're now back in the red-green-refactor cycle).
+They should first change the tests (we're now back in the red-green-refactor
+cycle).
 
-If it's not lunch-time yet, have some of them give presentations here.  Usually, however, presentations happen after lunch.
+If it's not lunch-time yet, have some of them give presentations here.  Usually,
+however, presentations happen after lunch.
 
 
-**LUNCH**
+*LUNCH*
 
 ### Farm, Null Object Pattern
 
