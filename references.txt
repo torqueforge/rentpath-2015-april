@@ -49,6 +49,13 @@ Things to Read:
     Vaughn Vernon: Implementing Domain Driven Design
       http://www.amazon.com/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577
 
+  Testing:
+    Golden Master Testing (article series)
+      http://www.sitepoint.com/golden-master-testing-refactor-complicated-views/
+
+    Approvals Tests
+      https://github.com/kytrinyx/approvals
+
 Things to Watch:
   Design
     http://bit.ly/sandi_metz_solid
