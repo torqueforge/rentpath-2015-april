@@ -39,20 +39,29 @@ cycle).
 If it's not lunch-time yet, have some of them give presentations here.  Usually,
 however, presentations happen after lunch.
 
-
 *LUNCH*
 
 ### Farm, Null Object Pattern
 
 Introduce the Farm exercise.
 
-* Tell them about 40 times that they cannot change Animal and that they should pretend they can't see the code in Animal.
-* Show the 'articalize' refinement.  Tell them not to worry about it; it just works.
-* Tell everyone if they look at the problem and already know the solution, that they can't let the cat out of the bag for others.  They are welcome to help teach, but they must do so by asking leading questions, not by explaining the NullObject Pattern.
+- Tell them about 40 times that they cannot change Animal and that they should
+  pretend they can't see the code in Animal.
+- Show the 'articalize' refinement.  Tell them not to worry about it; it just
+  works.
+- Tell everyone if they look at the problem and already know the solution, that
+  they can't let the cat out of the bag for others. They are welcome to help
+  teach, but they must do so by asking leading questions, not by explaining the
+  NullObject Pattern.
 
-The goal is to get them to express this problem as one they know], and then to fix it with the technique they learned in Bottles.  That means they have to write to entire 'if' statement down, and then get an object to stand in for both the true branch and the false branch.  Since Animal already exists, they just need to figure out that they should create NullAnimal.
+The goal is to get them to express this problem as one they know, and then to
+fix it with the technique they learned in Bottles. That means they have to
+write to entire 'if' statement down, and then get an object to stand in for both
+the true branch and the false branch. Since Animal already exists, they just
+need to figure out that they should create NullAnimal.
 
-Sometimes they write the if statement and say "I see, I could just monkey patch nil to add #sound and #species".  If they say this, let them...
+Sometimes they write the if statement and say "I see, I could just monkey patch
+nil to add #sound and #species".  If they say this, let them...
 
     class NilClass
       def sound
@@ -63,7 +72,10 @@ Sometimes they write the if statement and say "I see, I could just monkey patch 
       end
     end
 
-And then once they get it working, tell then that the methods are exactly right, but ask if it makes sense to put them on NilClass.  When they say, "Err, well, no", ask them what class they go on.  Once they decide to create a NullAnimal or MissingAnimal or something
+And then once they get it working, tell then that the methods are exactly right,
+but ask if it makes sense to put them on NilClass. When they say, "Err, well,
+no", ask them what class they go on. Once they decide to create a NullAnimal or
+MissingAnimal or something
 
     class MissingAnimal
       def sound
@@ -74,15 +86,18 @@ And then once they get it working, tell then that the methods are exactly right,
       end
     end
 
-help them figure out how to swap nils for instances of MissingAnimal, and then push the conditional up to the #initialize method, and then out into a wrapper.
+help them figure out how to swap nils for instances of MissingAnimal, and then
+push the conditional up to the #initialize method, and then out into a wrapper.
 
-Remember that creating a wrapper introduces and API breaking chance and requires that you change the tests.  Sometimes it's worth it. :-)
+Remember that creating a wrapper introduces and API breaking chance and requires
+that you change the tests. Sometimes it's worth it. :-)
 
 **SHORT BREAK**
 
 **SWAG??**
 
 ### Remaining Presentations
+
 For however long it takes.
 
 ### House, Random and Echo
@@ -90,27 +105,31 @@ For however long it takes.
 Let's drive them into a hole using inheritance.
 
 RandomHouse Instructions:
-  * Randomize the list ONCE before you start producing the Tale.
-      * Don't randomize over and over again, randomize once!
-  * The rules are: you can't use a conditional, and House must be open to the new requirement.
-  * Tell them that inheritance is perfect and to go write it.
+
+- Randomize the list ONCE before you start producing the Tale.
+  - Don't randomize over and over again, randomize once!
+- The rules are: you can't use a conditional, and House must be open to the new
+  requirement.
+- Tell them that inheritance is perfect and to go write it.
 
 EchoHouse Instructions:
-  * Each bit should appear twice.
-      * This is the house that Jack built the house that Jack built.
-      * This is the malt that lay in the malt that lay in the house that Jack built the house that Jack built.
-      * etc.
-  * Same rules.  No conditionals, House must be open.
-  * Tell them again to just go use inheritance.
+
+- Each bit should appear twice.
+  - This is the house that Jack built the house that Jack built.
+  - This is the malt that lay in the malt that lay in the house that Jack built
+    the house that Jack built.
+  - Same rules. No conditionals, House must be open.
+  - Tell them again to just go use inheritance.
 
 RandomEchoHouse Instructions:
-  * Still want House, random house and echo house.
-  * Same rules.  No conditionals, House must be open.
-  * New rule.  You may not duplicate any code.
+- Still want House, random house and echo house.
+- Same rules. No conditionals, House must be open.
+- New rule. You may not duplicate any code.
 
 Now inheritance is broken.
 
-At this point it's easiest to ```git reset --HARD```, and edit House to take a random boolean and test it.
+At this point it's easiest to ```git reset --HARD```, and edit House to take a
+random boolean and test it.
 
       attr_reader :data
       def initialize(random=false)
@@ -122,24 +141,33 @@ At this point it's easiest to ```git reset --HARD```, and edit House to take a r
           end
       end
 
-This is the problem they know, and they should be able to figure out that they need an object for each branch of the conditional.
+This is the problem they know, and they should be able to figure out that they
+need an object for each branch of the conditional.
 
 These objects play a common role.
-They must name the role, define the API, create various objects to play the role, and inject them into House.
+
+They must name the role, define the API, create various objects to play the
+role, and inject them into House.
 
 They should create an Order role, and then perhaps a Formatter role.
-This is a good place to introduce them to named parameters, if it hasn't already come up.
+
+This is a good place to introduce them to named parameters, if it hasn't already
+come up.
 
 Make them demo House, random house, echo house and random echo house.
 
-Once they get this done, continue to add new variants.  All previous variants must continue to work, plus
-  * Hold 'the house the Jack built' last, shuffle only lines 1-11.
-  * Mix up actors 'the malt' and actions 'that lay in'.
-  Each line has a trailing 'that'.  This final, trailing 'that' separates the actor from the action.
-  * Mix up actors 'the priest', modifiers 'all shaven and shorn' and actions 'the married'.
-  Not every line has a modifier, assume the modifier is '' if it doesn't exist.
+Once they get this done, continue to add new variants.  All previous variants
+must continue to work, plus
 
-I don't have new refactorings for these variants, but some examples are in the old house\_x\_old\_exploration branch.
+- Hold 'the house the Jack built' last, shuffle only lines 1-11.
+- Mix up actors 'the malt' and actions 'that lay in'. Each line has a trailing
+  'that'.  This final, trailing 'that' separates the actor from the action.
+- Mix up actors 'the priest', modifiers 'all shaven and shorn' and actions 'the
+  married'. Not every line has a modifier, assume the modifier is '' if it
+  doesn't exist.
+
+I don't have new refactorings for these variants, but some examples are in the
+old house\_x\_old\_exploration branch.
 
 
 ### Do final survey
@@ -148,8 +176,6 @@ Tell them the bit.ly day 3 survey link
 Give them a few minutes to fill out survey
 
 Hug and go
-
-
 
 ------------
 ------------

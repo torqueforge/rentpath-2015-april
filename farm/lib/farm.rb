@@ -4,7 +4,7 @@ class Farm
   attr_reader :animals
 
   def initialize(animals)
-    @animals = animals
+    @animals = reliable_animals(animals)
   end
 
   def lyrics
@@ -21,5 +21,21 @@ class Farm
     "Here #{sound.articlize}, there #{sound.articlize}, " +
       "everywhere #{sound.articlize} #{sound},\n" +
     "Old MacDonald had a farm, E-I-E-I-O."
+  end
+
+  private
+
+  def reliable_animals(animals)
+    animals.collect { |animal| animal || NullAnimal.new }
+  end
+end
+
+class NullAnimal
+  def sound
+    '<silence>'
+  end
+
+  def species
+    '<silence>'
   end
 end
