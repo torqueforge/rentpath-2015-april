@@ -9,16 +9,16 @@ class Bottles
   end
 
   def verse(number)
-    bottle_number      = BottleNumber.new(number)
-    next_bottle_number = BottleNumber.new(bottle_number.successor)
-    "#{bottle_number.to_s.capitalize} of beer on the wall, " +
-    "#{bottle_number} of beer.\n" +
-    "#{bottle_number.action}, " +
-    "#{next_bottle_number} of beer on the wall.\n"
+    container_number      = ContainerNumber.new(number)
+    next_container_number = ContainerNumber.new(container_number.successor)
+    "#{container_number.to_s.capitalize} of beer on the wall, " +
+    "#{container_number} of beer.\n" +
+    "#{container_number.action}, " +
+    "#{next_container_number} of beer on the wall.\n"
   end
 end
 
-class BottleNumber
+class ContainerNumber
   attr_reader :number
 
   def initialize(number)
